@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Mango Test</string>
     <string name="edit_text_hint">Введите номер телефона</string>
+    <string name="ок">ОК</string>
+    <string name="button_confitm">Подтвердить</string>
+    <string name="confirmation_code_hint">код подтверждения</string>
 </resources>
