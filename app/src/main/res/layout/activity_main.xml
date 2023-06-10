@@ -35,6 +35,14 @@
             android:hint="@string/edit_text_hint"
             android:inputType="phone" />
 
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/ок"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -43,12 +51,11 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearlayout_PhoneNumber"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/linearlayout_PhoneNumber">
 
         <EditText
             android:id="@+id/editTextConfirmationCode"
@@ -65,13 +72,5 @@
             android:text="@string/button_confitm" />
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/ок"
-        android:layout_margin="10dp"
-        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

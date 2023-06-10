@@ -1,4 +1,4 @@
-package com.example.mangotest.model
+package com.example.mangotest.model.checkauthcode
 
 data class AuthCodeVerificationResponse(
     val refresh_token: String,
