@@ -5,6 +5,9 @@
     <string name="button_confitm">Подтвердить</string>
     <string name="confirmation_code_hint">код подтверждения</string>
     <string name="phone_number_hint">phone number</string>
-    <string name="user_name_hint">Введите имя пользователя</string>
+    <string name="name_hint">Введите имя пользователя</string>
+    <string name="formatted_code_plus_number">Ваш номер: %1$s %2$s</string>
     <string name="formatted_phone_number">%1$s %2$s</string>
+    <string name="user_name_hint">Ввете логин</string>
+    <string name="register">Регистрация</string>
 </resources>
