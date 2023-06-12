@@ -26,7 +26,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="10dp"
-            android:padding="8dp" />
+            android:padding="8dp"
+            app:ccp_textSize="18sp" />
 
         <EditText
             android:id="@+id/editTextPhoneNumber"
@@ -34,14 +35,18 @@
             android:layout_height="wrap_content"
             android:hint="@string/edit_text_hint"
             android:inputType="phone"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/button"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:text="@string/ок"
+            android:textSize="18sp"
+
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent" />
 
     </LinearLayout>
@@ -64,13 +69,17 @@
             android:layout_height="wrap_content"
             android:hint="@string/confirmation_code_hint"
             android:inputType="number"
-            android:maxLength="6" />
+            android:maxLength="6"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/btnConfirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/button_confitm" />
+            android:layout_margin="10dp"
+            android:text="@string/button_confitm"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

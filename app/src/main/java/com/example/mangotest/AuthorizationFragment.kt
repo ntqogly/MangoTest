@@ -1,14 +1,11 @@
 package com.example.mangotest
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import com.example.mangotest.databinding.FragmentAuthorizationBinding
 import com.example.mangotest.model.checkauthcode.AuthCodeVerificationRequest
 import com.example.mangotest.model.sendauthcode.AuthNumberRequest
@@ -63,7 +60,7 @@ class AuthorizationFragment : Fragment() {
                     } else {
                         Toast.makeText(
                             requireActivity().applicationContext,
-                            "Ошибочка sendPhoneNumberAndHandleResponse",
+                            "Ошибка",
                             Toast.LENGTH_SHORT
                         ).show()
                     }
@@ -96,23 +93,26 @@ class AuthorizationFragment : Fragment() {
                         //Авторизация пользователя
                         TODO()
                     } else {
-                        proceedToRegistration()
+                        proceedToRegistrationScreen()
                     }
                 }
             }
         }
     }
 
-    private fun proceedToRegistration() {
+    private fun proceedToRegistrationScreen() {
         val countryCode = binding.countryCodePicker.selectedCountryCodeWithPlus
-        Log.d("CountryCode", "Selected country code: $countryCode")
         val phoneNumber = binding.editTextPhoneNumber.text.toString()
-        val bundle = Bundle()
-        bundle.putString("phone_number", phoneNumber)
-        bundle.putString("country_code", countryCode)
-        regFragment.arguments = bundle
-        requireActivity().supportFragmentManager.beginTransaction().replace(
-            R.id.container, regFragment
-        ).addToBackStack(null).commit()
+        regFragment.apply {
+            arguments = Bundle().apply {
+                putString("phone_number", phoneNumber)
+                putString("country_code", countryCode)
+            }
+        }
+        requireActivity().supportFragmentManager.beginTransaction().apply {
+            replace(R.id.container, regFragment)
+            addToBackStack(null)
+            commit()
+        }
     }
 }
