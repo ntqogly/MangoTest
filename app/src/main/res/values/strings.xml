@@ -2,7 +2,9 @@
     <string name="app_name">Mango Test</string>
     <string name="edit_text_hint">Введите номер телефона</string>
     <string name="ок">Отправить</string>
-    <string name="button_confitm">Подтвердить</string>
+    <string name="button_confirm">Подтвердить</string>
+    <string name="button_sign_in">Вход</string>
+    <string name="button_sign_up">Регистрация</string>
     <string name="confirmation_code_hint">код подтверждения</string>
     <string name="phone_number_hint">Номер телефона:</string>
     <string name="name_hint">Введите имя пользователя</string>

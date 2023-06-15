@@ -11,7 +11,6 @@ import com.example.mangotest.model.checkauthcode.AuthCodeVerificationRequest
 import com.example.mangotest.model.checkauthcode.AuthCodeVerificationResponse
 import com.example.mangotest.model.sendauthcode.AuthNumberRequest
 import com.example.mangotest.network.ApiFactory
-import com.example.mangotest.network.ApiService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -47,15 +46,18 @@ class AuthorizationFragment : Fragment() {
     }
 
     private fun sendPhoneNumberAndHandleResponse() {
-        binding.button.setOnClickListener {
+        binding.buttonSendNumber.setOnClickListener {
+            binding.buttonSendNumber.isEnabled = false
             val phoneNumber = binding.editTextPhoneNumber.text.toString()
             CoroutineScope(Dispatchers.IO).launch {
                 val response =
                     ApiFactory.getApiService().sendAuthNumber(AuthNumberRequest(phoneNumber))
                 val isSuccess = response.is_success
                 activity?.runOnUiThread {
+                    binding.buttonSendNumber.isEnabled = true
                     if (isSuccess) {
                         showConfirmationCodeLayout()
+                        onBackPressed()
                         checkCodeAndHandleResponse()
                     } else {
                         Toast.makeText(
@@ -74,6 +76,7 @@ class AuthorizationFragment : Fragment() {
 
     private fun checkCodeAndHandleResponse() {
         binding.btnConfirm.setOnClickListener {
+            binding.btnConfirm.isEnabled = false
             val phoneNumber = binding.editTextPhoneNumber.text.toString()
             val confirmationCode = binding.editTextConfirmationCode.text.toString()
             CoroutineScope(Dispatchers.IO).launch {
@@ -82,6 +85,7 @@ class AuthorizationFragment : Fragment() {
                         phoneNumber, confirmationCode
                     )
                 )
+                binding.btnConfirm.isEnabled = false
                 activity?.runOnUiThread {
                     val refreshToken = response.body()?.refresh_token
                     val accessToken = response.body()?.access_token
@@ -127,4 +131,12 @@ class AuthorizationFragment : Fragment() {
             commit()
         }
     }
+
+    private fun onBackPressed() {
+        binding.btnBack.setOnClickListener {
+            binding.linearlayoutPhoneNumber.visibility = View.VISIBLE
+            binding.linearlayoutConfirmationCode.visibility = View.GONE
+        }
+    }
+
 }

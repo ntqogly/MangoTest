@@ -40,7 +40,7 @@ class ProfileFragment : Fragment() {
                             tvPhoneNumber.text = profileData?.phone
                             tvNickName.text = profileData?.username
                             tvBirthDay.text = profileData?.birthday
-                            tvAboutMe.text = profileData?.status
+                            tvStatus.text = profileData?.status
                             tvCity.text = profileData?.city
                         }
                     }
