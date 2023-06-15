@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".ProfileFragment">
 
@@ -12,83 +11,221 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="145dp"
+        android:layout_marginTop="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <TextView
-        android:id="@+id/tvPhoneNumber"
-        android:layout_width="160dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/phone_number_hint"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:backgroundTint="@color/background_card_view"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintTop_toBottomOf="@id/imageView">
 
-    <TextView
-        android:id="@+id/tvNickName"
-        android:layout_width="160dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/nick_name"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/tvPhoneNumber"
-        app:layout_constraintStart_toStartOf="@+id/tvPhoneNumber"
-        app:layout_constraintTop_toBottomOf="@+id/tvPhoneNumber" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp">
 
-    <TextView
-        android:id="@+id/tvZodiac"
-        android:layout_width="160dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/zodiac"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/tvNickName"
-        app:layout_constraintStart_toStartOf="@+id/tvNickName"
-        app:layout_constraintTop_toBottomOf="@+id/tvNickName" />
+            <TextView
+                android:id="@+id/tvPhoneNumberLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="@string/phone_number_hint"
+                android:textColor="@color/text"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvBirthDay"
-        android:layout_width="160dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/birth_day"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/tvZodiac"
-        app:layout_constraintStart_toStartOf="@+id/tvZodiac"
-        app:layout_constraintTop_toBottomOf="@+id/tvZodiac" />
+            <TextView
+                android:id="@+id/tvPhoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="+7 945 51-85-51"
+                android:textColor="@color/text"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@id/tvPhoneNumberLabel"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="HardcodedText" />
 
-    <TextView
-        android:id="@+id/tvCity"
-        android:layout_width="160dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/city"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/tvBirthDay"
-        app:layout_constraintStart_toStartOf="@+id/tvBirthDay"
-        app:layout_constraintTop_toBottomOf="@+id/tvBirthDay" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="#63000000"
+                app:layout_constraintTop_toBottomOf="@id/tvPhoneNumberLabel" />
 
-    <TextView
-        android:id="@+id/tvAboutMe"
-        android:layout_width="160dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/about_me"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/tvCity"
-        app:layout_constraintStart_toStartOf="@+id/tvCity"
-        app:layout_constraintTop_toBottomOf="@+id/tvCity" />
+            <TextView
+                android:id="@+id/tvNickNameLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="@string/nick_name"
+                android:textColor="@color/text"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvPhoneNumberLabel" />
+
+            <TextView
+                android:id="@+id/tvNickName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="batman"
+                android:textColor="@color/text"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@id/tvNickNameLabel"
+                app:layout_constraintTop_toBottomOf="@id/tvPhoneNumberLabel" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="#63000000"
+                app:layout_constraintTop_toBottomOf="@id/tvNickNameLabel" />
+
+            <TextView
+                android:id="@+id/tvZodiacLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="@string/zodiac"
+                android:textColor="@color/text"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvNickNameLabel" />
+
+            <TextView
+                android:id="@+id/tvZodiac"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Овен"
+                android:textColor="@color/text"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@id/tvZodiacLabel"
+                app:layout_constraintTop_toBottomOf="@id/tvNickNameLabel" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="#63000000"
+                app:layout_constraintTop_toBottomOf="@id/tvZodiacLabel" />
+
+            <TextView
+                android:id="@+id/tvBirthDayLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="@string/birth_day"
+                android:textColor="@color/text"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvZodiacLabel" />
+
+            <TextView
+                android:id="@+id/tvBirthDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="25.08.1985"
+                android:textColor="@color/text"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@+id/tvBirthDayLabel"
+                app:layout_constraintTop_toBottomOf="@id/tvZodiacLabel" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="#63000000"
+                app:layout_constraintTop_toBottomOf="@id/tvBirthDayLabel" />
+
+            <TextView
+                android:id="@+id/tvCityLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/city"
+                android:layout_marginTop="16dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:textColor="@color/text"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvBirthDayLabel" />
+
+            <TextView
+                android:id="@+id/tvCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Москва"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/text"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@id/tvCityLabel"
+                app:layout_constraintTop_toBottomOf="@id/tvBirthDayLabel" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="#63000000"
+                app:layout_constraintTop_toBottomOf="@id/tvCityLabel" />
+
+            <TextView
+                android:id="@+id/tvStatusLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/about_me"
+                android:layout_marginTop="16dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:textColor="@color/text"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCityLabel" />
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Все ок"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/text"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@id/tvStatusLabel"
+                app:layout_constraintTop_toBottomOf="@id/tvCityLabel" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="#63000000"
+                app:layout_constraintTop_toBottomOf="@id/tvStatusLabel" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

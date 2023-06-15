@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#6A5757"
     android:gravity="center"
     android:orientation="horizontal"
     tools:context=".AuthorizationFragment">
@@ -33,19 +32,20 @@
             android:id="@+id/editTextPhoneNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/text"
             android:hint="@string/edit_text_hint"
             android:inputType="phone"
             android:minHeight="48dp"
             android:textSize="18sp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:backgroundTint="@color/button"
             android:text="@string/ок"
             android:textSize="18sp"
-
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent" />
 
@@ -67,15 +67,17 @@
             android:id="@+id/editTextConfirmationCode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/text"
             android:hint="@string/confirmation_code_hint"
             android:inputType="number"
             android:maxLength="6"
             android:textSize="18sp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnConfirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/button"
             android:layout_margin="10dp"
             android:text="@string/button_confitm"
             android:textSize="18sp"
