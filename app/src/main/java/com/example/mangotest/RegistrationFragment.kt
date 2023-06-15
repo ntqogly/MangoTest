@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.example.mangotest.databinding.FragmentRegistrationBinding
 import com.example.mangotest.model.register.AuthRegisterRequest
 import com.example.mangotest.model.register.AuthRegisterResponse
@@ -16,11 +17,14 @@ import com.example.mangotest.network.ApiService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import org.json.JSONObject
+import retrofit2.Response
 
 class RegistrationFragment : Fragment() {
 
     private lateinit var binding: FragmentRegistrationBinding
-    private val apiService: ApiService = ApiFactory.getApiService()
+    private val profileFragment = ProfileFragment()
+    private val viewModel: MyViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -71,22 +75,34 @@ class RegistrationFragment : Fragment() {
             val name = binding.etName.text.toString()
             val userName = binding.etUserName.text.toString()
             CoroutineScope(Dispatchers.IO).launch {
-                val response = apiService.register(
+                val response = ApiFactory.getApiService().register(
                     AuthRegisterRequest(fullPhoneNumber, name, userName)
                 )
-                val refreshToken = response.refresh_token
-                val accessToken = response.access_token
-                val userId = response.user_id
+                val refreshToken = response.body()?.refresh_token
+                val accessToken = response.body()?.access_token
+                val userId = response.body()?.user_id
                 activity?.runOnUiThread {
-                    if (refreshToken.isNotEmpty() and accessToken.isNotEmpty()) {
-                        TODO() //авторизация
+                    viewModel.token.value = accessToken
+                    if (response.isSuccessful) {
+                        requireActivity().supportFragmentManager.beginTransaction().apply {
+                            replace(R.id.container, profileFragment)
+                            addToBackStack(null)
+                            commit()
+                        }
                     } else {
-                        Toast.makeText(
-                            requireActivity().applicationContext, "Ошибка", Toast.LENGTH_SHORT
-                        ).show()
+                        showError(response)
                     }
                 }
             }
         }
+    }
+
+    private fun showError(response: Response<AuthRegisterResponse>) {
+        val errorMessage = response.errorBody()?.string()?.let { it1 ->
+            JSONObject(it1).getJSONObject("detail").getString("message")
+        }
+        Toast.makeText(
+            requireActivity().applicationContext, "$errorMessage", Toast.LENGTH_SHORT
+        ).show()
     }
 }
