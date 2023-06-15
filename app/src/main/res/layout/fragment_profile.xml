@@ -40,6 +40,7 @@
                 android:text="@string/phone_number_hint"
                 android:textColor="@color/text"
                 android:textSize="18sp"
+                app:fontFamily="monospace"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,6 +52,7 @@
                 android:text="+7 945 51-85-51"
                 android:textColor="@color/text"
                 android:textSize="18sp"
+                app:fontFamily="monospace"
                 app:layout_constraintStart_toEndOf="@id/tvPhoneNumberLabel"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="HardcodedText" />
@@ -72,6 +74,7 @@
                 android:text="@string/nick_name"
                 android:textColor="@color/text"
                 android:textSize="18sp"
+                app:fontFamily="monospace"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvPhoneNumberLabel" />
 
@@ -84,6 +87,7 @@
                 android:text="batman"
                 android:textColor="@color/text"
                 android:textSize="18sp"
+                app:fontFamily="monospace"
                 app:layout_constraintStart_toEndOf="@id/tvNickNameLabel"
                 app:layout_constraintTop_toBottomOf="@id/tvPhoneNumberLabel" />
 
@@ -104,6 +108,7 @@
                 android:text="@string/zodiac"
                 android:textColor="@color/text"
                 android:textSize="18sp"
+                app:fontFamily="monospace"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvNickNameLabel" />
 
@@ -116,6 +121,7 @@
                 android:text="Овен"
                 android:textColor="@color/text"
                 android:textSize="18sp"
+                app:fontFamily="monospace"
                 app:layout_constraintStart_toEndOf="@id/tvZodiacLabel"
                 app:layout_constraintTop_toBottomOf="@id/tvNickNameLabel" />
 
@@ -136,6 +142,7 @@
                 android:text="@string/birth_day"
                 android:textColor="@color/text"
                 android:textSize="18sp"
+                app:fontFamily="monospace"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvZodiacLabel" />
 
@@ -148,6 +155,7 @@
                 android:text="25.08.1985"
                 android:textColor="@color/text"
                 android:textSize="18sp"
+                app:fontFamily="monospace"
                 app:layout_constraintStart_toEndOf="@+id/tvBirthDayLabel"
                 app:layout_constraintTop_toBottomOf="@id/tvZodiacLabel" />
 
@@ -162,12 +170,13 @@
                 android:id="@+id/tvCityLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/city"
                 android:layout_marginTop="16dp"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
+                android:text="@string/city"
                 android:textColor="@color/text"
                 android:textSize="18sp"
+                app:fontFamily="monospace"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvBirthDayLabel" />
 
@@ -175,11 +184,12 @@
                 android:id="@+id/tvCity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Москва"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
+                android:text="Москва"
                 android:textColor="@color/text"
                 android:textSize="18sp"
+                app:fontFamily="monospace"
                 app:layout_constraintStart_toEndOf="@id/tvCityLabel"
                 app:layout_constraintTop_toBottomOf="@id/tvBirthDayLabel" />
 
@@ -194,12 +204,13 @@
                 android:id="@+id/tvStatusLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/about_me"
                 android:layout_marginTop="16dp"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
+                android:text="@string/about_me"
                 android:textColor="@color/text"
                 android:textSize="18sp"
+                app:fontFamily="monospace"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvCityLabel" />
 
@@ -207,11 +218,12 @@
                 android:id="@+id/tvStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Все ок"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
+                android:text="Все ок"
                 android:textColor="@color/text"
                 android:textSize="18sp"
+                app:fontFamily="monospace"
                 app:layout_constraintStart_toEndOf="@id/tvStatusLabel"
                 app:layout_constraintTop_toBottomOf="@id/tvCityLabel" />
 
