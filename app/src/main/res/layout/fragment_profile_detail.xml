@@ -4,20 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileFragment">
-
+    tools:context=".ProfileDetailFragment">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
+        app:layout_constraintBottom_toTopOf="@+id/cwProfile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginTop="150dp"
+        tools:src="@tools:sample/avatars"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <com.google.android.material.card.MaterialCardView
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cwProfile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -37,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
-                android:text="@string/phone_number_hint"
+                android:text="@string/hint_tv_phoneNumber"
                 android:textColor="@color/text"
                 android:textSize="18sp"
                 app:fontFamily="monospace"
@@ -49,7 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="+7 945 51-85-51"
+                android:text=""
                 android:textColor="@color/text"
                 android:textSize="18sp"
                 app:fontFamily="monospace"
@@ -71,7 +74,7 @@
                 android:layout_marginTop="16dp"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
-                android:text="@string/nick_name"
+                android:text="@string/hint_tv_nickName"
                 android:textColor="@color/text"
                 android:textSize="18sp"
                 app:fontFamily="monospace"
@@ -84,7 +87,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="batman"
+                android:text=""
                 android:textColor="@color/text"
                 android:textSize="18sp"
                 app:fontFamily="monospace"
@@ -105,7 +108,7 @@
                 android:layout_marginTop="16dp"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
-                android:text="@string/zodiac"
+                android:text="@string/hint_tv_zodiac"
                 android:textColor="@color/text"
                 android:textSize="18sp"
                 app:fontFamily="monospace"
@@ -118,7 +121,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="Овен"
+                android:text=""
                 android:textColor="@color/text"
                 android:textSize="18sp"
                 app:fontFamily="monospace"
@@ -139,7 +142,7 @@
                 android:layout_marginTop="16dp"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
-                android:text="@string/birth_day"
+                android:text="@string/hint_tv_birthday"
                 android:textColor="@color/text"
                 android:textSize="18sp"
                 app:fontFamily="monospace"
@@ -152,7 +155,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="25.08.1985"
+                android:text=""
                 android:textColor="@color/text"
                 android:textSize="18sp"
                 app:fontFamily="monospace"
@@ -173,7 +176,7 @@
                 android:layout_marginTop="16dp"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
-                android:text="@string/city"
+                android:text="@string/hint_tv_city"
                 android:textColor="@color/text"
                 android:textSize="18sp"
                 app:fontFamily="monospace"
@@ -186,7 +189,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="Москва"
+                android:text=""
                 android:textColor="@color/text"
                 android:textSize="18sp"
                 app:fontFamily="monospace"
@@ -207,7 +210,7 @@
                 android:layout_marginTop="16dp"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
-                android:text="@string/about_me"
+                android:text="@string/hint_status"
                 android:textColor="@color/text"
                 android:textSize="18sp"
                 app:fontFamily="monospace"
@@ -220,7 +223,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="Все ок"
+                android:text=""
                 android:textColor="@color/text"
                 android:textSize="18sp"
                 app:fontFamily="monospace"
@@ -237,7 +240,20 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </com.google.android.material.card.MaterialCardView>
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonEditProfileItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:layout_marginBottom="15dp"
+        android:backgroundTint="@color/button"
+        android:text="@string/button_edit_profile_item"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

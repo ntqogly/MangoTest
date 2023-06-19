@@ -11,11 +11,11 @@ data class ProfileData(
     @SerializedName("instagram") var instagram: String? = null,
     @SerializedName("status") var status: String? = null,
     @SerializedName("avatar") var avatar: String? = null,
-    @SerializedName("id") var id: Int? = null,
     @SerializedName("last") var last: String? = null,
     @SerializedName("online") var online: Boolean? = null,
     @SerializedName("created") var created: String? = null,
     @SerializedName("phone") var phone: String? = null,
     @SerializedName("completed_task") var completedTask: Int? = null,
-    @SerializedName("avatars") var avatars: Avatars? = Avatars()
+    @SerializedName("avatars") var avatars: Avatars? = Avatars(),
+    @SerializedName("id") var id: Int? = null
 )

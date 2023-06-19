@@ -1,5 +1,7 @@
 package com.example.mangotest
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.InputFilter
 import android.view.LayoutInflater
@@ -13,7 +15,6 @@ import com.example.mangotest.databinding.FragmentRegistrationBinding
 import com.example.mangotest.model.register.AuthRegisterRequest
 import com.example.mangotest.model.register.AuthRegisterResponse
 import com.example.mangotest.network.ApiFactory
-import com.example.mangotest.network.ApiService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -23,8 +24,10 @@ import retrofit2.Response
 class RegistrationFragment : Fragment() {
 
     private lateinit var binding: FragmentRegistrationBinding
-    private val profileFragment = ProfileFragment()
+
+    private val profileDetailFragment = ProfileDetailFragment()
     private val viewModel: MyViewModel by activityViewModels()
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -37,7 +40,10 @@ class RegistrationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setInputFilters(binding.etUserName)
         getInputPhoneNumber()
-        registerUser()
+        binding.buttonRegister.setOnClickListener {
+            registerUser()
+        }
+        sharedPreferences = requireContext().getSharedPreferences("Prefs", Context.MODE_PRIVATE)
     }
 
     private fun setInputFilters(editText: EditText) {
@@ -67,34 +73,37 @@ class RegistrationFragment : Fragment() {
     }
 
     private fun registerUser() {
-        binding.buttonRegister.setOnClickListener {
-            val numberWithoutCode = arguments?.getString("phone_number")
-            val countryCode = arguments?.getString("country_code")
-            val fullPhoneNumber =
-                getString(R.string.formatted_phone_number, countryCode, numberWithoutCode)
-            val name = binding.etName.text.toString()
-            val userName = binding.etUserName.text.toString()
-            CoroutineScope(Dispatchers.IO).launch {
-                val response = ApiFactory.getApiService().register(
-                    AuthRegisterRequest(fullPhoneNumber, name, userName)
-                )
-                val refreshToken = response.body()?.refresh_token
-                val accessToken = response.body()?.access_token
-                val userId = response.body()?.user_id
-                activity?.runOnUiThread {
-                    viewModel.token.value = accessToken
-                    if (response.isSuccessful) {
-                        requireActivity().supportFragmentManager.beginTransaction().apply {
-                            replace(R.id.container, profileFragment)
-                            addToBackStack(null)
-                            commit()
-                        }
-                    } else {
-                        showError(response)
+        val numberWithoutCode = arguments?.getString("phone_number")
+        val countryCode = arguments?.getString("country_code")
+        val fullPhoneNumber =
+            getString(R.string.formatted_phone_number, countryCode, numberWithoutCode)
+        val name = binding.etName.text.toString()
+        val userName = binding.etUserName.text.toString()
+        val editor = sharedPreferences.edit()
+        editor.putString(NAME, name)
+        editor.putString(USER_NAME, userName)
+        editor.apply()
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = ApiFactory.getApiService().register(
+                AuthRegisterRequest(fullPhoneNumber, name, userName)
+            )
+            val refreshToken = response.body()?.refresh_token
+            val accessToken = response.body()?.access_token
+            val userId = response.body()?.user_id
+            activity?.runOnUiThread {
+                viewModel.token.value = accessToken
+                if (response.isSuccessful) {
+                    requireActivity().supportFragmentManager.beginTransaction().apply {
+                        replace(R.id.container, profileDetailFragment)
+                        addToBackStack(null)
+                        commit()
                     }
+                } else {
+                    showError(response)
                 }
             }
         }
+
     }
 
     private fun showError(response: Response<AuthRegisterResponse>) {
@@ -104,5 +113,13 @@ class RegistrationFragment : Fragment() {
         Toast.makeText(
             requireActivity().applicationContext, "$errorMessage", Toast.LENGTH_SHORT
         ).show()
+    }
+
+    companion object {
+        private const val NAME = "name"
+        private const val USER_NAME = "user_name"
+        fun newInstance(): RegistrationFragment {
+            return RegistrationFragment()
+        }
     }
 }

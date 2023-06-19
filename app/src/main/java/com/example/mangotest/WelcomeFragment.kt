@@ -11,7 +11,6 @@ class WelcomeFragment : Fragment() {
 
     private lateinit var binding: FragmentWelcomeBinding
     private val authorizationFragment = AuthorizationFragment()
-    private val registrationFragment = RegistrationFragment()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -25,10 +24,6 @@ class WelcomeFragment : Fragment() {
         binding.buttonSignIn.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.container, authorizationFragment).addToBackStack(null).commit()
-        }
-        binding.buttonSignUp.setOnClickListener {
-            requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.container, registrationFragment).addToBackStack(null).commit()
         }
     }
 }

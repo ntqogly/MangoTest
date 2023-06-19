@@ -1,20 +1,27 @@
 <resources>
     <string name="app_name">Mango Test</string>
     <string name="edit_text_hint">Введите номер телефона</string>
-    <string name="ок">Отправить</string>
+    <string name="send">Отправить</string>
     <string name="button_confirm">Подтвердить</string>
     <string name="button_sign_in">Вход</string>
     <string name="button_sign_up">Регистрация</string>
     <string name="confirmation_code_hint">код подтверждения</string>
-    <string name="phone_number_hint">Номер телефона:</string>
+    <string name="hint_tv_phoneNumber">Номер телефона:</string>
     <string name="name_hint">Введите имя пользователя</string>
     <string name="formatted_code_plus_number">Ваш номер: %1$s %2$s</string>
     <string name="formatted_phone_number">%1$s %2$s</string>
-    <string name="user_name_hint">Ввете логин</string>
-    <string name="register">Регистрация</string>
-    <string name="nick_name">Никнейм:</string>
-    <string name="city">Город:</string>
-    <string name="birth_day">Дата рождения:</string>
-    <string name="zodiac">Знак зодиака:</string>
-    <string name="about_me">О себе:</string>
+    <string name="user_name_hint">Введите логин</string>
+    <string name="button_register">Регистрация</string>
+    <string name="hint_tv_nickName">Никнейм:</string>
+    <string name="hint_tv_city">Город:</string>
+    <string name="hint_tv_birthday">Дата рождения:</string>
+    <string name="hint_tv_zodiac">Знак зодиака:</string>
+    <string name="hint_status">О себе:</string>
+    <string name="item_profile">Профиль</string>
+    <string name="button_users">Пользователи</string>
+    <string name="hint_et_status">напишите о себе</string>
+    <string name="hint_et_city">введите город</string>
+    <string name="button_save_profile_data">Сохранить</string>
+    <string name="button_edit_profile_item">Редактировать профиль</string>
+    <string name="hint_et_birthday">введите д.р.</string>
 </resources>

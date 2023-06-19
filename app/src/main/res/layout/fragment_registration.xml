@@ -6,11 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".RegistrationFragment">
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvRegistrationLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:text="Регистрация"
+        android:textColor="@color/text"
+        android:textSize="30sp"
+        app:fontFamily="monospace"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/tvPhoneNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/phone_number_hint"
+        android:text="@string/hint_tv_phoneNumber"
         android:textColor="@color/text"
         android:textAlignment="center"
         android:textSize="18sp"
@@ -49,13 +62,13 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonRegister"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="40dp"
         android:layout_marginBottom="15dp"
         android:backgroundTint="@color/button"
-        android:text="@string/register"
+        android:text="@string/button_register"
         android:textSize="18sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/etUserName"
         app:layout_constraintStart_toStartOf="@+id/etUserName"
