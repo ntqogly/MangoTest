@@ -8,6 +8,19 @@
     android:orientation="horizontal"
     tools:context=".AuthorizationFragment">
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvAuthorizationLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:text="Авторизация"
+        android:textColor="@color/text"
+        android:textSize="30sp"
+        app:fontFamily="monospace"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <LinearLayout
         android:id="@+id/linearlayout_PhoneNumber"
@@ -45,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:backgroundTint="@color/button"
-            android:text="@string/ок"
+            android:text="@string/send"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent" />
 

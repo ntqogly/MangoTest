@@ -8,12 +8,14 @@ import com.example.mangotest.model.register.AuthRegisterRequest
 import com.example.mangotest.model.register.AuthRegisterResponse
 import com.example.mangotest.model.sendauthcode.AuthNumberRequest
 import com.example.mangotest.model.sendauthcode.AuthNumberResponse
+import com.example.mangotest.model.updateuser.UserUpdateRequest
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Headers
 import retrofit2.http.POST
+import retrofit2.http.PUT
 
 interface ApiService {
 
@@ -28,5 +30,10 @@ interface ApiService {
 
     @GET("/api/v1/users/me/")
     suspend fun getUserInfo(@Header("Authorization") authorization: String): Profiles
+
+    @PUT("/api/v1/users/me/")
+    suspend fun updateUserProfile(
+        @Header("Authorization") authorization: String, @Body request: UserUpdateRequest
+    ): Response<Unit>
 }
 
